@@ -12,11 +12,11 @@ namespace FileDamageExample
             string fileName = "example.txt";
 
             // Creamos una copia de seguridad del archivo original
-            string backupFileName = $"{fileName}.backup";
-            File.Copy(fileName, backupFileName, true);
+            string damegedFileName = $"{fileName}.damaged";
+            File.Copy(fileName, damegedFileName, true);
 
             // Abrimos el archivo en modo lectura y escritura
-            using (FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.ReadWrite))
+            using (FileStream stream = new FileStream(damegedFileName, FileMode.Open, FileAccess.ReadWrite))
             {
                 // Cambiamos el contenido del archivo de manera aleatoria
                 Random rnd = new Random();

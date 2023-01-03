@@ -19,11 +19,11 @@ namespace FileDamageExample
             
 
             // Creamos una copia de seguridad del archivo original
-            string backupFileName = $"{fileName}.backup";
-            File.Copy(fileName, backupFileName, true);
+            string damagedFileName = $"{fileName}.damaged.png";
+            File.Copy(fileName, damagedFileName, true);
 
             // Abrimos el archivo .png en modo lectura y escritura
-            using (FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.ReadWrite))
+            using (FileStream stream = new FileStream(damagedFileName, FileMode.Open, FileAccess.ReadWrite))
             {
                 // Buscamos la sección IDAT en el archivo .png
                 bool idatFound = false;
@@ -68,11 +68,11 @@ namespace FileDamageExample
             // El nombre del archivo a dañar
             Console.WriteLine("destruyendo texto");
             // Creamos una copia de seguridad del archivo original
-            string damegedFileName = $"{fileName}.damaged";
-            File.Copy(fileName, damegedFileName, true);
+            string damagedFileName = $"{fileName}.damaged.txt";
+            File.Copy(fileName, damagedFileName, true);
 
             // Abrimos el archivo en modo lectura y escritura
-            using (FileStream stream = new FileStream(damegedFileName, FileMode.Open, FileAccess.ReadWrite))
+            using (FileStream stream = new FileStream(damagedFileName, FileMode.Open, FileAccess.ReadWrite))
             {
                 // Cambiamos el contenido del archivo de manera aleatoria
                 Random rnd = new Random();
